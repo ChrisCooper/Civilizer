@@ -1,0 +1,9 @@
+{% if latest_subject_list %}
+    <ul>
+    {% for subject in latest_subject_list %}
+        <li><a href="/subjects/{{ subject.id }}/">{{ subject.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No subjects are available.</p>
+{% endif %}

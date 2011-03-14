@@ -1,0 +1,26 @@
+<h1>{{ subject.name }}</h1>
+<h3>{{ subject.description }}</h3>
+
+<form>
+<fieldset>
+
+<legend>Post a point:</legend>
+
+<textarea name="contents" rows="5" cols="50">
+Type your point in here.</textarea><br />
+
+<input type="submit" value="Post" />
+
+</fieldset>
+</form>
+
+<ul>
+{% for point in points.all %}
+    <li>{{ point.contents }}</li>
+    <ul>
+    	<form><input type="submit" name="vote" value="Up" /><input type="submit" name="vote" value="Down" /></form>
+    	<li><a href="/users/{{ point.user.id }}/">{{ point.user }}</a>
+    	(+{{point.upvotes}}/-{{point.downvotes}})</li>
+    </ul>
+{% endfor %}
+</ul>

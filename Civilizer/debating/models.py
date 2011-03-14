@@ -22,7 +22,9 @@ class Point(models.Model):
         self.save()
     
     def __unicode__(self):
-        return u"Point by " + self.user.__unicode__()
+        str = u"Point on \"" + self.subject.__unicode__() + u"\" by " + self.user.__unicode__()
+        str +=  u" (+" + unicode(self.upvotes) + u"/-" + unicode(self.downvotes) + u")"
+        return str
 
 class User(models.Model):
     username = models.CharField(max_length=35, unique=True)
@@ -58,3 +60,9 @@ class Subject(models.Model):
     
     def __unicode__(self):
         return self.name
+
+def points_by_subject(subject):
+    return Point.objects.filter(subject=subject)
+
+def points_by_user(user):
+    return Point.objects.filter(user=user)

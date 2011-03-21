@@ -4,9 +4,9 @@ from django.contrib import admin
 class PointAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['subject', 'user', 'contents']}),
-        ('Pre-determined information', {'fields': ['post_date', 'upvotes', 'downvotes']}),
+        ('Pre-determined information', {'fields': ['post_date', 'votes', 'upvotes', 'downvotes']}),
     ]
-    list_display = ('user', 'subject', 'post_date', 'upvotes', 'downvotes')
+    list_display = ('user', 'subject', 'post_date', 'votes', 'upvotes', 'downvotes')
     list_filter = ['post_date']
     search_fields = ['contents']
     date_hierarchy = 'post_date'

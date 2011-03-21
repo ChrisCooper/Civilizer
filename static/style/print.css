@@ -1,0 +1,36 @@
+html, body {
+    margin: 0;
+    padding:0;
+}
+body    {
+    font: 10pt/15pt "Lucida Grande", Verdana, Tahoma, Helvetica, Arial, sans-serif;
+    background-color:white;
+}
+
+h1 { font-size: 18pt; }
+h2 { font-size: 16pt; }
+h3 { font-size: 14pt; }
+
+table, form, select, input, textarea { 
+    font-size: 100%; /* ie hack so these elements correctly inherit the default text size */ 
+}   
+
+address {
+    font-style: normal;
+    display: block;
+    margin: 1em 0 1em 0;
+}
+
+#thumbs, #contact, #nav, #footer {
+    display: none;
+}
+
+body #panel-2 ul li {
+    display: inline;
+}
+
+body #panel-2 ul li a {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: -1em;
+}

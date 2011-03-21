@@ -1,0 +1,97 @@
+html, body {
+    font: 10pt/15pt "Lucida Grande", Verdana, Tahoma, Helvetica, Arial, sans-serif;
+    
+}
+
+.subject_description {
+    background-color: rgb(200,200,200);
+    color: rgb(0,0,0);
+}
+
+h1 {
+    font: 25pt/20pt "Lucida Grande", Verdana, Tahoma, Helvetica, Arial, sans-serif;
+    size: 50px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    max-width: 800px;
+}
+
+h2 {
+    font-size: 17px;
+    font-style: italic;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    max-width: 700px;
+}
+
+.point_section {
+    background-color: rgb(255,255,255);
+}
+
+.point {
+    margin: 10px;
+    color: rgb(0,0,0);
+}
+
+.point_controls {
+    margin-left: 0px;
+    float: left;
+    width: 40px;
+    min-height: 50px;
+    text-align: center;
+    padding: 5px 5px 5px 0px;
+}
+
+.vote_up_off {
+    background-image: url("http://127.0.0.1:8000/static/images/up_arrow.png");
+    background-repeat: no-repeat;
+    background-color: inherit;
+    min-width: 30px;
+    min-height: 20px;
+    
+}
+
+.vote_count {
+    padding: 0px 0px 8px 0px;
+    margin: 0px;
+    text-align: center;
+    font-size: 15px;
+}
+.vote_down_off {
+    background-image: url("http://127.0.0.1:8000/static/images/down_arrow.png");
+    background-repeat: no-repeat;
+    background-color: inherit;
+    min-width: 30px;
+    min-height: 20px;
+}
+
+.point_info {
+    padding: 1px;
+    max-width: 600px;
+}
+
+.point_username {
+    color: rgb(50,50,255);
+}
+
+.point_votes {
+    font-size: 10px;
+    color: rgb(150,150,150);
+}
+
+.point_contents {
+    max-width: 600px;
+}
+.seperator {
+    height: 1px;
+    margin: 5px 50px 5px 20px;
+    background-color: rgb(240,240,240);
+}
+
+
+
+
+
+

@@ -1,26 +1,67 @@
-<h1>{{ subject.name }}</h1>
-<h3>{{ subject.description }}</h3>
+<html>
+    <head>
+	
+	<base href="http://127.0.0.1:8000/" />
+	<link rel="stylesheet" type="text/css" href="static/style/debating.css"></link>
+	<script src="http://code.jquery.com/jquery-1.5.1.js"></script>
+	
+    </head>
 
-<form>
-<fieldset>
 
-<legend>Post a point:</legend>
+    <body>
+	
+	<div class="subject_info" id="subject_info">
+	    <h1>{{ subject.name }}</h1>
+	    <h3>{{ subject.description }}</h3>
+	</div>
+    
+    
+    
+		
 
-<textarea name="contents" rows="5" cols="50">
-Type your point in here.</textarea><br />
+    
+<!-- document.getElementById("myDiv").innerHTML    -->
+    
+	<div id="post_point_section">
+	    <form>
+		<fieldset>
+		
+		<legend>Post a point:</legend>
+		
+		<textarea name="contents" rows="5" cols="50">Type your point in here.</textarea>
+		
+		<input type="submit" value="Post" />
+		
+		</fieldset>
+	    </form>
+	</div>
+    
+	<div id="point_display">
+	    
+	    <ul>
+	    {% for point in points.all %}
+		<li>
+		
+		<div class="vote">
+		<input type="hidden" value="{{point.id}}">
+		<a class="vote-up-off" title="This point should be posted (click again to undo)">up vote</a>
+		<span class="vote-count-post">{{point.upvotes}}</span>
+		<a class="vote-down-off" title="This point should not be posted (click again to undo)">down vote</a>
+		    </div>
+		
+		
+		
+		{{ point.contents }}</li>
+		<ul>
+		    <form><input type="submit" name="vote" value="Up" /><input type="submit" name="vote" value="Down" /></form>
+		    <li><a href="/users/{{ point.user.id }}/">{{ point.user }}</a>
+		    (+{{point.upvotes}}/-{{point.downvotes}})</li>
+		</ul>
+	    {% endfor %}
+	    </ul>
+	</div>
+    
+    
+    </body>
 
-<input type="submit" value="Post" />
-
-</fieldset>
-</form>
-
-<ul>
-{% for point in points.all %}
-    <li>{{ point.contents }}</li>
-    <ul>
-    	<form><input type="submit" name="vote" value="Up" /><input type="submit" name="vote" value="Down" /></form>
-    	<li><a href="/users/{{ point.user.id }}/">{{ point.user }}</a>
-    	(+{{point.upvotes}}/-{{point.downvotes}})</li>
-    </ul>
-{% endfor %}
-</ul>
+</html>

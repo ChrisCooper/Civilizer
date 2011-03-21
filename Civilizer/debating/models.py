@@ -7,9 +7,11 @@ class Point(models.Model):
     post_date = models.DateTimeField('date posted')
     upvotes = models.IntegerField()
     downvotes = models.IntegerField()
+    votes = models.IntegerField()
     
     def upvote(self, times=1):
         self.upvotes += times
+        self.votes += times
         self.user.upvote(times=times)
         self.user.save()
         self.save()
@@ -17,6 +19,7 @@ class Point(models.Model):
         
     def downvote(self, times=1):
         self.downvotes += times
+        self.votes -= times
         self.user.downvote(times=times)
         self.user.save()
         self.save()

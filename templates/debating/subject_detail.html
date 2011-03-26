@@ -2,63 +2,66 @@
     <head>
 	
 	<base href="http://127.0.0.1:8000/" />
+	
+	<link rel="stylesheet" type="text/css" href="static/style/reset.css"></link>
 	<link rel="stylesheet" type="text/css" href="static/style/debating.css"></link>
+	
 	<script src="http://code.jquery.com/jquery-1.5.1.js"></script>
+	<script src="static/scripts/post_point.js"></script>
+	
 	
     </head>
 
 
     <body>
-	
-	<div class="subject_info" id="subject_info">
-	    <h1>{{ subject.name }}</h1>
-	    <h3>{{ subject.description }}</h3>
+	<div class="subject_description" id="subject_description">
+	    <h1> {{ subject.name }}</h1>
+	    <h2> {{ subject.description }} </h2>
 	</div>
-    
-    
-    
-		
-
-    
-<!-- document.getElementById("myDiv").innerHTML    -->
-    
-	<div id="post_point_section">
+	
+	<div class="post_point_section" id="post_point_section">
 	    <form>
-		<fieldset>
 		
-		<legend>Post a point:</legend>
+		<div>
+		    <textarea rows="1" cols="1" id="point_text" name="point_text"></textarea>
+		</div>
+		<div>
+		    <button type="button" onclick="testAJAX()">Post point</button>
+		</div>
 		
-		<textarea name="contents" rows="5" cols="50">Type your point in here.</textarea>
-		
-		<input type="submit" value="Post" />
-		
-		</fieldset>
 	    </form>
 	</div>
-    
-	<div id="point_display">
+	
+	<div class="point_section" id="point_section">
 	    
-	    <ul>
-	    {% for point in points.all %}
-		<li>
-		
-		<div class="vote">
-		<input type="hidden" value="{{point.id}}">
-		<a class="vote-up-off" title="This point should be posted (click again to undo)">up vote</a>
-		<span class="vote-count-post">{{point.upvotes}}</span>
-		<a class="vote-down-off" title="This point should not be posted (click again to undo)">down vote</a>
+	    {% for point in points %}
+	    
+	    <div class="point" id="point_762948">
+		<div class="point_controls" id="point_controls_762948">
+		    <div class="vote_up_off"></div>
+		    <div class="vote_count">{{ point.votes }}</div>
+		    <div class="vote_down_off"></div>
+		</div>
+		<div class="point_text" id="point_text_762948">
+		    <div class="point_info" id="point_info_762948">
+			<span class="point_username" id="point_user_16571623">
+			    {{ point.user }}
+			</span>
+			<span class="point_votes" id="point_votes_762948">
+			    (+{{ point.upvotes }}/-{{ point.downvotes }})
+			</span>
 		    </div>
-		
-		
-		
-		{{ point.contents }}</li>
-		<ul>
-		    <form><input type="submit" name="vote" value="Up" /><input type="submit" name="vote" value="Down" /></form>
-		    <li><a href="/users/{{ point.user.id }}/">{{ point.user }}</a>
-		    (+{{point.upvotes}}/-{{point.downvotes}})</li>
-		</ul>
+		    <div class="point_contents" id="point_contents_762948">
+			{{ point.contents }}
+		    </div>
+		</div>
+	    </div>
+	    
+	    <div class="seperator" id="seperator_1">
+	    </div>
+	    
 	    {% endfor %}
-	    </ul>
+	    
 	</div>
     
     

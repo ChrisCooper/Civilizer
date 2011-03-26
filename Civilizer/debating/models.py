@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class Point(models.Model):
     contents = models.TextField(max_length=1000)
@@ -13,7 +14,6 @@ class Point(models.Model):
         self.upvotes += times
         self.votes += times
         self.user.upvote(times=times)
-        self.user.save()
         self.save()
 
         
@@ -21,8 +21,16 @@ class Point(models.Model):
         self.downvotes += times
         self.votes -= times
         self.user.downvote(times=times)
-        self.user.save()
         self.save()
+        
+    def reset(self, user, subject):
+        self.contents = ""
+        self.subject = subject
+        self.user = user
+        self.post_date = datetime.datetime.now()
+        upvotes = 0
+        downvotes = 0
+        votes = 0
     
     def __unicode__(self):
         str = u"Point on \"" + self.subject.__unicode__() + u"\" by " + self.user.__unicode__()

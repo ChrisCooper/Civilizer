@@ -1,0 +1,20 @@
+<div class="point" id="point_{{ point.id }}">
+    <div class="point_controls" id="point_controls_{{ point.id }}">
+        <div class="vote_up_off"></div>
+        <div class="vote_count">{{ point.votes }}</div>
+        <div class="vote_down_off"></div>
+    </div>
+    <div class="point_text" id="point_text_{{ point.id }}">
+        <div class="point_info" id="point_info_{{ point.id }}">
+            <span class="point_username" id="point_user_{{ user.id }}">
+                {{ point.user }}
+            </span>
+            <span class="point_votes" id="point_votes_{{ point.id }}">
+                (+{{ point.upvotes }}/-{{ point.downvotes }})
+            </span>
+        </div>
+        <div class="point_contents" id="point_contents_{{ point.id }}">
+            {{ point.contents }}
+        </div>
+    </div>
+</div>
